@@ -141,20 +141,20 @@
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
     <script src="jquery.storage.js/jquery.storage.js"></script>
     <script type="text/javascript">
-        function escape_string (string) {
+        
+        function escape_string(string) {
             var to_escape = ['\\', ';', ',', ':', '"'];
             var hex_only = /^[0-9a-f]+$/i;
             var output = "";
             for (var i=0; i<string.length; i++) {
-                if($.inArray(string[i], to_escape) != -1) {
-                    output += '\\'+string[i];
-                }
-                else {
+                if (to_escape.indexOf(string[i]) != -1) {
+                    output += '\\' + string[i];
+                } else {
                     output += string[i];
                 }
             }
             if (hex_only.test(output)) {
-                output = '"'+output+'"';
+                output = '"' + output + '"';
             }
             return output;
         };
